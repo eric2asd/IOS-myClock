@@ -38,7 +38,7 @@ class MyClockView: UIView {
             self.refreshView()
         } )
         
-        Timer.scheduledTimer(withTimeInterval: 3600, repeats: true, block: {(timer) in
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: {(timer) in
             self.resetTime()
         })
         
@@ -89,9 +89,12 @@ class MyClockView: UIView {
         let now = Date()
         let cal = Calendar.current
         var dataComps = cal.dateComponents([.hour, .minute,.second], from: now)
-        a = a + 6 * Double(dataComps.second!)
-        b = b + 6 * Double(dataComps.minute!)  + 0.1 * Double(dataComps.second!)
-        c = c + 30 * Double(dataComps.hour! % 12) + 0.5 * Double(dataComps.minute!) + 1 / 120 * Double(dataComps.second!)
+        m = 0
+        h = 0
+        i = 0
+        a = 270 + 6 * Double(dataComps.second!)
+        b = 270 + 6 * Double(dataComps.minute!)  + 0.1 * Double(dataComps.second!)
+        c = 270 + 30 * Double(dataComps.hour! % 12) + 0.5 * Double(dataComps.minute!) + 1 / 120 * Double(dataComps.second!)
     }
     
     
